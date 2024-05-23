@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
         <ul>
             <li>
                 <label for="npm">NPM : </label>
-                <input type="text" name="npm" id="nip" required value="<?= $result["npm"]; ?>">
+                <input type="text" name="npm" id="npm" required value="<?= $result["npm"]; ?>" readonly>
             </li>
 
             <li>
@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
 
             <li>
                 <label for="jenis_kelamin">Jenis Kelamin : </label>
-                <input type="text" name="jurusan" id="jurusan" required value="<?= $result["jurusan"]; ?>">
+                <input type="text" name="jenis_kelamin" id="jenis_kelamin" required value="<?= $result["jenis_kelamin"]; ?>">
             </li>
 
             <li>

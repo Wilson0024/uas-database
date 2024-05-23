@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
         <ul>
             <li>
                 <label for="nip">NIM : </label>
-                <input type="text" name="nip" id="nip" required value="<?= $result["nip"]; ?>">
+                <input type="text" name="nip" id="nip" required value="<?= $result["nip"]; ?>" readonly>
             </li>
 
             <li>

@@ -1,0 +1,18 @@
+body
+{
+    font-family : Arial, sans-serif;
+    margin : 0;
+    padding : 0;
+    background-color: white; 
+    align-items : center;
+    justify-content : center;
+    display : flex;
+    min-height: 150vh;
+}
+
+tr
+{
+    color : #B7C4CF;
+    font-family : Arial, sans-serif;
+    font-size : 12px;
+}

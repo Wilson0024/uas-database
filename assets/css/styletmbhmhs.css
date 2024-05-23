@@ -1,0 +1,19 @@
+body
+{
+    font-family : Arial, sans-serif;
+    margin : 0;
+    padding : 0;
+    background-color: white; 
+}
+
+h1
+{
+    text-align: centre;
+    color : black;
+}
+
+table
+{
+    width : 150%;
+    margin-bottom : 30px;
+}

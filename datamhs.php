@@ -2,7 +2,10 @@
 require 'functions.php';
 require 'islogin.php';
 
-$mahasiswa = query("SELECT npm, nama, jenis_kelamin, semester, kode_juru FROM mahasiswa");
+$mahasiswa = query("SELECT m.npm, m.nama, m.jenis_kelamin, m.semester, j.nama_jurusan 
+                    FROM mahasiswa m 
+                    JOIN jurusan j 
+                    ON m.kode_jurusan = j.kode_jurusan");
 
 if (isset($_POST["cari"])) {
     $mahasiswa = carimhs($_POST["keyword"]);
@@ -16,13 +19,11 @@ if (isset($_POST["cari"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
+    <link rel="stylesheet" href="stylemhs.css">
 </head>
 
 <body>
     <h1>Data Mahasiswa</h1>
-
-
-    <br><br>
 
     <form action="" method="post">
         <input type="text" name="keyword" size="40" autofocus placeholder="masukkan keyword pencarian" autocomplete="off">
@@ -30,41 +31,34 @@ if (isset($_POST["cari"])) {
     </form>
 
     <table border="1" cellpadding="10" cellspacing="0">
-
         <tr>
             <th>No.</th>
             <th>NPM</th>
             <th>Nama</th>
             <th>Jenis Kelamin</th>
             <th>Semester</th>
-            <th>kode Jurusan</th>
+            <th>Jurusan</th>
             <th>Aksi</th>
         </tr>
 
-        <?php $i = 1 ?>
-
+        <?php $i = 1; ?>
         <?php foreach ($mahasiswa as $row) : ?>
-
             <tr>
-                <td><?= $i ?></td>
-                <td><?= $row["npm"] ?></td>
-                <td><?= $row["nama"] ?></td>
-                <td><?= $row["jenis_kelamin"] ?></td>
-                <td><?= $row["semester"] ?></td>
-                <td><?= $row["kode_jurusan"] ?></td>
+                <td><?= $i; ?></td>
+                <td><?= $row["npm"]; ?></td>
+                <td><?= $row["nama"]; ?></td>
+                <td><?= $row["jenis_kelamin"]; ?></td>
+                <td><?= $row["semester"]; ?></td>
+                <td><?= $row["nama_jurusan"]; ?></td>
                 <td>
-                    <a href="updatemhs.php?npm=<?= $row["npm"] ?>">Ubah</a> |
-                    <a href="deletemhs.php?npm=<?= $row["npm"] ?>">hapus</a>
+                    <a href="updatemhs.php?npm=<?= $row["npm"]; ?>">Ubah</a> |
+                    <a href="deletemhs.php?npm=<?= $row["npm"]; ?>">Hapus</a>
                 </td>
             </tr>
-
-            <?php $i++ ?>
-
-        <?php endforeach ?>
-
-
-
+            <?php $i++; ?>
+        <?php endforeach; ?>
     </table>
+
     <a href="tambahmhs.php">Tambah Data Mahasiswa</a>
 </body>
 

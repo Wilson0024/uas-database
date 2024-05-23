@@ -1,0 +1,55 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 180px;
+    background-color: white;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+}
+
+form {
+    width: 80%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color:white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin: 10px 5px 10px 0;
+}
+
+input[type="submit"] {
+    background-color:lightgreen;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 15px 0;
+    color: lightgreen;
+    text-align: center;
+    font-weight: bold;
+}
