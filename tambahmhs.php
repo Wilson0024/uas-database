@@ -8,6 +8,12 @@
                 document.location.href = 'datamhs.php';
             </script>";
         }
+        else if(tambahmhs($_POST) == -1){
+            echo "<script>
+                 alert('dosen tidak ada di database');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         }
         else{
             echo "<script>
                 alert('data gagal ditambahkan');

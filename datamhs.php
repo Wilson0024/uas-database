@@ -2,10 +2,12 @@
 require 'functions.php';
 require 'islogin.php';
 
-$mahasiswa = query("SELECT m.npm, m.nama, m.jenis_kelamin, m.semester, j.nama_jurusan 
+$mahasiswa = query("SELECT m.npm, m.nama, m.jenis_kelamin, m.semester, j.nama_jurusan, d.nama AS nama_dosen
                     FROM mahasiswa m 
                     JOIN jurusan j 
-                    ON m.kode_jurusan = j.kode_jurusan");
+                    ON m.kode_jurusan = j.kode_jurusan
+                    JOIN dosen d
+                    ON m.nip = d.nip");
 
 if (isset($_POST["cari"])) {
     $mahasiswa = carimhs($_POST["keyword"]);
@@ -38,6 +40,7 @@ if (isset($_POST["cari"])) {
             <th>Jenis Kelamin</th>
             <th>Semester</th>
             <th>Jurusan</th>
+            <th>Dosen Pembimbing</th>
             <th>Aksi</th>
         </tr>
 
@@ -50,9 +53,10 @@ if (isset($_POST["cari"])) {
                 <td><?= $row["jenis_kelamin"]; ?></td>
                 <td><?= $row["semester"]; ?></td>
                 <td><?= $row["nama_jurusan"]; ?></td>
+                <td><?= $row["nama_dosen"]?></td>
                 <td>
                     <a href="updatemhs.php?npm=<?= $row["npm"]; ?>">Ubah</a> |
-                    <a href="deletemhs.php?npm=<?= $row["npm"]; ?>">Hapus</a>
+                    <a href="deletemhs.php?npm=<?= $row["npm"] ; ?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                 </td>
             </tr>
             <?php $i++; ?>

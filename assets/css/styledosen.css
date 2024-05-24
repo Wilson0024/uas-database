@@ -10,9 +10,105 @@ body
     min-height: 150vh;
 }
 
-tr
+h1 
 {
-    color : #B7C4CF;
-    font-family : Arial, sans-serif;
-    font-size : 12px;
+    margin : 20px 0;
+    color : #6F4C5B;
+}
+
+form 
+{
+    margin-bottom: 20px;
+}
+
+input[type = "text"]
+{
+    width : 250px;
+    padding : 10px;
+    border : 1px solid #FFF2E1;
+    border-radius : 4px;
+    margin-right : 10px;
+}
+
+button[type = "submit"]
+{
+    padding : 10px 20px;
+    background-color: #D7C0AE;
+    color : white;
+    border : none;
+    border-radius: 4px;
+    cursor : pointer;
+}
+
+button[type = "submit"]:hover
+{
+    background-color : #967E76;
+}
+
+table 
+{
+    width : 75%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td
+{
+    border : 1px solid #B7C4CF; 
+}
+
+th, td
+{
+    padding : 12px;
+    text-align: center;
+}
+
+th
+{
+    background-color: #f2f2f2;
+    color : white;
+}
+
+tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+tr:hover
+{
+    background-color: #f1f1f1;
+}
+
+button a
+{
+    text-decoration: none;
+    color : white
+}
+
+button
+{
+    padding : 5px 10px;
+    background-color: lightgreen;
+    border : none;
+    border-radius : 4px;
+    cursor : pointer;
+    margin : 0 2px;
+}
+
+button:hover
+{
+    background-color: #006400;
+}
+
+a
+{
+    text-decoration: none;
+    color : lightgreen;
+    margin-top : 20px;
+    display : inline-block;
+}
+
+a:hover
+{
+    color : #006400;
 }

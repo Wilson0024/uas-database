@@ -12,7 +12,7 @@ function query($query) {
     return $rows;
 }
 
-// function untuk tambah
+// function untuk menambah
 function tambahmhs($data) {
     global $db;
     $npm = htmlspecialchars($data["npm"]);
@@ -21,11 +21,18 @@ function tambahmhs($data) {
     $semester = htmlspecialchars($data["semester"]);
     $kode_jurusan = htmlspecialchars($data["kode_jurusan"]);
     $nip = htmlspecialchars($data["nip"]);
+    
+    $benar = mysqli_query($db, "SELECT nip FROM dosen WHERE dosen.nip = '$nip'");
 
-    $query = "INSERT INTO mahasiswa values ('$npm','$nama','$jenis_kelamin', '$semester', '$kode_jurusan', '$nip')";
-    mysqli_query($db, $query);
+    if($benar == $nip){
+        $query = "INSERT INTO mahasiswa values ('$npm','$nama','$jenis_kelamin', '$semester', '$kode_jurusan', '$nip')";
+        mysqli_query($db, $query);
 
-    return mysqli_affected_rows($db);
+        return mysqli_affected_rows($db);
+    }
+    else{
+        return -1;
+    }
 }
 
 function tambahdosen($data) {
@@ -52,6 +59,18 @@ function tambahjurusan($data) {
     return mysqli_affected_rows($db);
 }
 
+function tambahmatkul($data, $kode) {
+    global $db;
+    $nama_matkul = htmlspecialchars($data["nama_matkul"]);
+    $sks = htmlspecialchars($data["sks"]);
+
+    $query = "INSERT INTO matakuliah (nama_mk, sks, kode_jurusan) values ('$nama_matkul', '$sks', '$kode')";
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// function untuk menghapus
 function hapusmhs($datanpm) {
     global $db;
     $query = "DELETE FROM mahasiswa WHERE npm = '$datanpm'";
@@ -73,6 +92,14 @@ function hapusjurusan($data) {
     return mysqli_affected_rows($db);
 }
 
+function hapusmatkul($data) {
+    global $db;
+    $query = "DELETE FROM matakuliah WHERE kode_mk = '$data'";
+    mysqli_query($db, $query);
+    return mysqli_affected_rows($db);
+}
+
+//
 function updatedosen($data) {
     global $db;
     $nip = htmlspecialchars($data["nip"]);
@@ -99,7 +126,10 @@ function updatemhs($data) {
     $kode_jurusan = htmlspecialchars($data["kode_jurusan"]);
     $nip = htmlspecialchars($data["nip"]);
 
-    $query = "UPDATE mahasiswa SET 
+    $benar = mysqli_query($db, "SELECT nip FROM dosen WHERE dosen.nip = '$nip'");
+
+    if ($benar == $nip) {
+        $query = "UPDATE mahasiswa SET 
                     nama = '$nama',
                     jenis_kelamin = '$jenis_kelamin',
                     semester = '$semester',
@@ -107,8 +137,12 @@ function updatemhs($data) {
                     nip = '$nip'
                     WHERE npm = '$npm'";
 
-    mysqli_query($db, $query);
-    return mysqli_affected_rows($db);
+        mysqli_query($db, $query);
+        return mysqli_affected_rows($db);
+    }
+    else {
+        return -1;
+    }
 }
 
 function updatejurusan($data) {
@@ -119,6 +153,21 @@ function updatejurusan($data) {
     $query = "UPDATE jurusan SET
                     nama_jurusan = '$nama_jurusan'
                     WHERE kode_jurusan = '$kode_jurusan'";
+
+    mysqli_query($db, $query);
+    return mysqli_affected_rows($db);
+}
+
+function updatematkul($data) {
+    global $db;
+    $kode_mk = htmlspecialchars($data["kode_mk"]);
+    $nama_mk = htmlspecialchars($data["nama_mk"]);
+    $sks = htmlspecialchars($data["sks"]);
+
+    $query = "UPDATE matakuliah SET
+                    nama_mk = '$nama_mk',
+                    sks = '$sks'
+                    WHERE kode_mk = '$kode_mk'";
 
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
@@ -137,13 +186,13 @@ function caridosen($keyword) {
 
 function carimhs($keyword) {
     $query = "SELECT m.npm, m.nama, m.jenis_kelamin, m.semester, j.nama_jurusan 
-    FROM mahasiswa m 
-    JOIN jurusan j 
-    ON m.kode_jurusan = j.kode_jurusan
-    WHERE m.nama LIKE '%$keyword%' 
-    OR m.npm LIKE '%$keyword%' 
-    OR j.nama_jurusan LIKE '%$keyword%'";                
-                
+                    FROM mahasiswa m 
+                    JOIN jurusan j 
+                    ON m.kode_jurusan = j.kode_jurusan
+                    WHERE m.nama LIKE '%$keyword%' 
+                    OR m.npm LIKE '%$keyword%' 
+                    OR j.nama_jurusan LIKE '%$keyword%'";
+
     return query($query);
 }
 
@@ -155,4 +204,12 @@ function carijurusan($keyword) {
     return query($query);
 }
 
-
+function carimatkul($keyword) {
+    $query = "SELECT * FROM matakuliah
+                    WHERE 
+                    kode_mk LIKE '%$keyword%' OR
+                    nama_mk LIKE '%$keyword%' OR
+                    sks LIKE '%$keyword%' OR
+                    kode_jurusan LIKE '%$keyword%'";
+    return query($query);
+}

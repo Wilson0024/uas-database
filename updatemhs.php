@@ -10,7 +10,14 @@ if (isset($_POST["submit"])) {
                 alert('data berhasil diubah');
                 document.location.href = 'datamhs.php';
             </script>";
-    } else {
+    } 
+    else if (updatemhs($_POST) == -1) {
+        echo "<script>
+                alert('dosen tidak ada di database');
+                document.location.href = 'datamhs.php';
+            </script>";
+    } 
+    else {
         echo "<script>
                 alert('data gagal diubah');
                 document.location.href = 'datamhs.php';

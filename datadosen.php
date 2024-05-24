@@ -52,7 +52,7 @@ if (isset($_POST["cari"])) {
                 <td><?= $row["email"] ?></td>
                 <td>
                     <button><a href="updatedosen.php?nip=<?= $row["nip"] ?>">Ubah</a></button> |
-                    <button><a href="deletedosen.php?nip=<?= $row["nip"] ?>">hapus</a></button>
+                    <button><a href="deletedosen.php?nip=<?= $row["nip"] ?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">hapus</a></button>
                 </td>
             </tr>
 
