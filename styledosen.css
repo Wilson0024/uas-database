@@ -5,7 +5,7 @@ body
     padding : 0;
     background-color: white; 
     display : flex;
-    min-height: 150vh;
+    min-height: 150vh;
 }
 
 header
