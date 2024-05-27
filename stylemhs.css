@@ -1,5 +1,4 @@
-body
-{
+body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -11,19 +10,16 @@ body
     min-height: 100vh;
 }
 
-h1
-{
+h1 {
     margin: 20px 0;
     color: #333;
 }
 
-form
-{
+form {
     margin-bottom: 20px;
 }
 
-input[type="text"]
-{
+input[type="text"] {
     width: 300px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -31,8 +27,7 @@ input[type="text"]
     margin-right: 10px;
 }
 
-button[type="submit"]
-{
+button[type="submit"] {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -41,64 +36,53 @@ button[type="submit"]
     cursor: pointer;
 }
 
-button[type="submit"]:hover
-{
+button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-table
-{
+table {
     width: 100%;
     max-width: 1000px;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-table, th, td
-{
+table, th, td {
     border: 1px solid #ddd;
 }
 
-th, td
-{
+th, td {
     padding: 12px;
     text-align: left;
 }
 
-th
-{
+th {
     background-color: #f2f2f2;
     color: #333;
 }
 
-tr:nth-child(even)
-{
+tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tr:hover
-{
+tr:hover {
     background-color: #f1f1f1;
 }
 
-a
-{
+a {
     text-decoration: none;
     color: #007BFF;
 }
 
-a:hover
-{
+a:hover {
     color: #0056b3;
 }
 
-td a
-{
+td a {
     margin: 0 5px;
 }
 
-button
-{
+button {
     padding: 5px 10px;
     background-color: #007BFF;
     border: none;
@@ -108,13 +92,11 @@ button
     text-decoration: none;
 }
 
-button:hover
-{
+button:hover {
     background-color: #0056b3;
 }
 
-a.tambah
-{
+a.tambah {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
@@ -123,7 +105,6 @@ a.tambah
     border-radius: 4px;
 }
 
-a.tambah:hover
-{
+a.tambah:hover {
     background-color: #45a049;
 }
