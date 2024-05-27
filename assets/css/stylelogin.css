@@ -1,15 +1,18 @@
-body {
+body
+{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 180px;
     background-color: white;
 }
 
-h2 {
+h2
+{
     color: black;
     text-align: center;
 }
 
-form {
+form
+{
     width: 80%;
     max-width: 400px;
     margin: 50px auto;
@@ -24,20 +27,22 @@ label {
     margin: 10px 0;
 }
 
-input,
-select {
+input, select
+{
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"]
+{
     width: auto;
     margin: 10px 5px 10px 0;
 }
 
-input[type="submit"] {
+input[type="submit"]
+{
     background-color:lightgreen;
     color: white;
     padding: 10px;
@@ -47,7 +52,8 @@ input[type="submit"] {
     box-sizing: border-box;
 }
 
-p {
+p
+{
     margin: 15px 0;
     color: lightgreen;
     text-align: center;

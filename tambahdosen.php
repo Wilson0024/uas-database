@@ -23,6 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah data Dosen</title>
+    <link rel="stylesheet" href="styletmbhdosen.css">
 </head>
 <body>
     <h1>Tambah data Dosen</h1>

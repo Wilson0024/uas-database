@@ -26,6 +26,7 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah data Dosen</title>
+    <link rel="stylesheet" href="styleupdosen.css">
 </head>
 
 <body>

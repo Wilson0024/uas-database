@@ -33,6 +33,7 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah data Mahasiswa</title>
+    <link rel="stylesheet" href="styleupmhs.css">
 </head>
 
 <body>
