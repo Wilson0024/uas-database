@@ -1,6 +1,6 @@
 <?php
-require 'functions.php';
 require 'islogin.php';
+require 'functions.php';
 
 $dosen = query("SELECT * FROM dosen");
 
