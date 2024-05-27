@@ -6,7 +6,9 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-image: url('D:/wallpaper/images.png');
+    background-size: cover;
+    background-position: center;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
