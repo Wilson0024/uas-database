@@ -19,6 +19,21 @@ $mata_kuliah = query("SELECT * FROM matakuliah");
     <title>Data Jurusan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="stylejurusan.css">
+    <style>
+        .expand-button {
+            cursor: pointer;
+        }
+        .expand-button i {
+            transition: transform 0.3s ease;
+            transform: rotate(90deg);
+        }
+        .expand-button.expanded i {
+            transform: rotate(0deg);
+        }
+        .hidden-row {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
