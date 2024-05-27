@@ -4,10 +4,8 @@ body
     margin : 0;
     padding : 0;
     background-color: white; 
-    align-items : center;
-    justify-content : center;
     display : flex;
-    min-height: 150vh;
+    min-height: 150vh;
 }
 
 header
