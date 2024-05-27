@@ -8,11 +8,19 @@ body {
 header {
     width: 100%;
     height: 20%;
-    background-image: url('D:/wallpaper/images.png');
+    background-image: url('C:/XAMPP/htdocs/images.png');
     background-size: cover;
     background-position: center;
     color: #fff;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header nav {
+    margin-top: 10px;
 }
 
 header nav a {
