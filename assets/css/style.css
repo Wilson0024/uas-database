@@ -6,6 +6,8 @@ body {
 }
 
 header {
+    width: 100%;
+    height: 20%;
     background-image: url('D:/wallpaper/images.png');
     background-size: cover;
     background-position: center;
