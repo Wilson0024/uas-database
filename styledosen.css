@@ -28,7 +28,7 @@ form {
 }
 
 input[type="text"] {
-    width: 250px;
+    width: 300px;
     padding: 10px;
     border: 1px solid #FFF2E1;
     border-radius: 4px;
@@ -49,7 +49,7 @@ button[type="submit"]:hover {
 }
 
 table {
-    width: 75%;
+    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -78,7 +78,7 @@ tr:hover {
 
 button a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 button {
@@ -91,7 +91,7 @@ button {
 }
 
 button:hover {
-    background-color: #006400;
+    background-color: #3CB371;
 }
 
 a {
@@ -102,5 +102,5 @@ a {
 }
 
 a:hover {
-    color: #006400;
+    color: red;
 }
