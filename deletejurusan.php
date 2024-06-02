@@ -10,7 +10,7 @@
     }
     else {
         echo "<script>
-            alert('data gagal dihapus');
+            alert('data gagal dihapus karena masih ada mahasiswa mengambil jurusan tersebut');
             document.location.href = 'datajurusan.php';
         </script>";
     }

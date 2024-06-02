@@ -14,6 +14,18 @@
                  document.location.href = 'datamhs.php';
              </script>";
          }
+         else if(tambahmhs($_POST) == -2){
+            echo "<script>
+                 alert('kode_jurusan tidak ada di database');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         }
+         else if(tambahmhs($_POST) == -3){
+            echo "<script>
+                 alert('kode_jurusan dan dosen tidak ada di database');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         }
         else{
             echo "<script>
                 alert('data gagal ditambahkan');
@@ -62,7 +74,7 @@
             </li>
 
             <li>
-            <label for=""nip>NIP Dosen Bimbingan : </label>
+            <label for="nip">NIP Dosen Bimbingan : </label>
             <input type="text" name="nip" id="nip" required>
             </li>
 
