@@ -25,27 +25,27 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubah data Jurusan</title>
+    <title>Ubah Data Jurusan</title>
     <link rel="stylesheet" href="styleupjurusan.css">
 </head>
 
 <body>
-    <h1>Ubah data jurusan</h1>
-
-    <form action="" method="post">
-        <ul>
-            <li>
-                <label for="kode_jurusan">Kode Jurusan : </label>
-                <input type="text" name="kode_jurusan" id="kode_jurusan" required value="<?= $result["kode_jurusan"]; ?>" readonly>
-            </li>
-            <li>
-                <label for="nama_jurusan">Nama Jurusan : </label>
-                <input type="text" name="nama_jurusan" id="nama_jurusan" required value="<?= $result["nama_jurusan"]; ?>">
-            </li>
-
-            <button type="submit" name="submit">Ubah Data</button>
-        </ul>
-    </form>
+    <h1>Ubah Data Jurusan</h1>
+    <div class="box">
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="kode_jurusan">Kode Jurusan : </label>
+                    <input type="text" name="kode_jurusan" id="kode_jurusan" required value="<?= $result["kode_jurusan"]; ?>" readonly>
+                </li>
+                <li>
+                    <label for="nama_jurusan">Nama Jurusan : </label>
+                    <input type="text" name="nama_jurusan" id="nama_jurusan" required value="<?= $result["nama_jurusan"]; ?>">
+                </li>
+                
+                <button type="submit" name="submit">Ubah Data</button>
+            </ul>
+        </form>
+    </div>
 </body>
-
 </html>

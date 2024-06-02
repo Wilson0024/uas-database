@@ -29,22 +29,23 @@
 </head>
 <body>
     <h1>Tambah Mata Kuliah</h1>
-
-    <form action="" method="post">
-        <ul>
-            <li>
-            <label for="nama">Nama Mata Kuliah : </label>
-            <input type="text" name="nama_matkul" id="nama" required>
-            </li>
-
-            <li>
-            <label for="sks ">SKS : </label>
-            <input type="text" name="sks" id="sks" required>
-            </li>
-
-
-            <button type="submit" name="submit">Tambah Data</button>
-        </ul>
-    </form>
+    <div class="box">
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="nama">Nama Mata Kuliah : </label>
+                    <input type="text" name="nama_matkul" id="nama" required>
+                </li>
+                
+                <li>
+                    <label for="sks ">SKS : </label>
+                    <input type="text" name="sks" id="sks" required>
+                </li>
+                
+                
+                <button type="submit" name="submit">Tambah Data</button>
+            </ul>
+        </form>
+    </div>
 </body>
 </html>

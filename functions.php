@@ -22,16 +22,24 @@ function tambahmhs($data) {
     $kode_jurusan = htmlspecialchars($data["kode_jurusan"]);
     $nip = htmlspecialchars($data["nip"]);
     
-    $benar = mysqli_query($db, "SELECT nip FROM dosen WHERE dosen.nip = '$nip'");
-
-    if($benar == $nip){
-        $query = "INSERT INTO mahasiswa values ('$npm','$nama','$jenis_kelamin', '$semester', '$kode_jurusan', '$nip')";
+    // Check if nip exists in dosen
+    $result = mysqli_query($db, "SELECT nip FROM dosen WHERE nip = '$nip'");
+    $result2 = mysqli_query($db, "SELECT kode_jurusan FROM jurusan WHERE kode_jurusan = '$kode_jurusan'");
+    
+    if (mysqli_num_rows($result) > 0 && mysqli_num_rows($result2) > 0) {
+        // Insert data into mahasiswa
+        $query = "INSERT INTO mahasiswa (npm, nama, jenis_kelamin, semester, kode_jurusan, nip) VALUES ('$npm', '$nama', '$jenis_kelamin', '$semester', '$kode_jurusan', '$nip')";
         mysqli_query($db, $query);
-
+        
         return mysqli_affected_rows($db);
-    }
-    else{
+    } else if(mysqli_num_rows($result) == 0 && mysqli_num_rows($result2) > 0){
         return -1;
+    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) > 0){
+        return -2;
+    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) == 0){
+        return -3;
+    } else{
+        return -4;
     }
 }
 
@@ -87,7 +95,17 @@ function hapusdosen($datanip) {
 
 function hapusjurusan($data) {
     global $db;
+    $query3 = "SELECT npm FROM mahasiswa WHERE kode_jurusan = '$data'";
+    $query2 = "DELETE FROM matakuliah WHERE kode_jurusan = '$data'";
     $query = "DELETE FROM jurusan WHERE kode_jurusan = '$data'";
+
+    $result = mysqli_query($db, $query3);
+
+    if(mysqli_num_rows($result) > 0){
+        return 0;
+    }
+
+    mysqli_query($db, $query2);
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }

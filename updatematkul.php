@@ -25,31 +25,31 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubah data Jurusan</title>
+    <title>Ubah Data Jurusan</title>
     <link rel="stylesheet" href="styleupmatkul.css">
 </head>
 
 <body>
-    <h1>Ubah data matkul</h1>
-
-    <form action="" method="post">
-        <ul>
-            <li>
-                <label for="kode_matkul">Kode Mata kuliah : </label>
-                <input type="text" name="kode_mk" id="kode_matkul" required value="<?= $result["kode_mk"]; ?>" readonly>
-            </li>
-            <li>
-                <label for="nama_mk">Nama Mata Kuliah : </label>
-                <input type="text" name="nama_mk" id="nama_mk" required value="<?= $result["nama_mk"]; ?>">
-            </li>
-            <li>
-                <label for="sks">SKS : </label>
-                <input type="text" name="sks" id="sks" required value="<?= $result["sks"]; ?>">
-            </li>
-
-            <button type="submit" name="submit">Ubah Data</button>
-        </ul>
-    </form>
+    <h1>Ubah Data Matkul</h1>
+    <div class="box">
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="kode_matkul">Kode Mata kuliah : </label>
+                    <input type="text" name="kode_mk" id="kode_matkul" required value="<?= $result["kode_mk"]; ?>" readonly>
+                </li>
+                <li>
+                    <label for="nama_mk">Nama Mata Kuliah : </label>
+                    <input type="text" name="nama_mk" id="nama_mk" required value="<?= $result["nama_mk"]; ?>">
+                </li>
+                <li>
+                    <label for="sks">SKS : </label>
+                    <input type="text" name="sks" id="sks" required value="<?= $result["sks"]; ?>">
+                </li>
+                
+                <button type="submit" name="submit">Ubah Data</button>
+            </ul>
+        </form>
+    </div>
 </body>
-
 </html>

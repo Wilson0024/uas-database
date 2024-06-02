@@ -1,17 +1,66 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background: url(jurusan3.png) no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.box {
+    width: 100%;
+    max-width: 1000px;
+    padding: 19px;
+    background-color: #FAF0E6; /* Dark background color */
+    color: black;
+    border: 5px solid black; /* White border to mimic a frame */
+    box-shadow: 10 10 20px rgba(0, 0, 0, 0.5); /* Shadow for a 3D effect */
+    border-radius: 10px; /* Rounded corners */
+    text-align: left;
+    position: relative;
+    margin-top: 50px;
+}
+
+.box h1, .box p {
+    color: #ecf0f1; /* Light gray for a chalk effect */
+    font-family: 'Shadows Into Light', cursive; /* Handwritten font */
+}
+
+.box::before, .box::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black; /* Same color as border for frame effect */
+    left: 0;
+}
+
+.box::before {
+    top: -5px;
+}
+
+.box::after {
+    bottom: -5px;
+}
+
+header {
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
 }
 
 h1 {
     width: 100%;
     height: 20%;
-    background-color: #333;
+    background-color: black;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -24,7 +73,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 th, td {
@@ -33,16 +82,13 @@ th, td {
 }
 
 th {
-    background-color: #7FFFD4;
-    color: #333;
+    background-color: #BDB76B;
+    color:black;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
+tr {
+    background-color: #CD853F;
+    color: black;
 }
 
 .hidden-row table {
@@ -52,11 +98,11 @@ tr:hover {
 }
 
 .hidden-row table, .hidden-row th, .hidden-row td {
-    border: 1px solid #ccc;
+    border: 1px solid black;
 }
 
 .hidden-row th {
-    background-color: #7FFFD4;
+    background-color: #BDB76B;
 }
 
 .expand-button {
@@ -78,20 +124,37 @@ tr:hover {
 
 a {
     text-decoration: none;
-    color: #007BFF;
+    color: white;
 }
 
-a:hover {
-    color: #0056b3;
+#a2 {
+    text-decoration: none;
+    color: black;
 }
 
-a:active {
-    color: purple !important;
+.a3 {
+    text-decoration: none;
+    color: black;
+}
+
+#a4 {
+    text-decoration: none;
+    color: black;
+}
+
+#a5 {
+    text-decoration: underline;
+    color: white;
+}
+
+#a5:hover {
+    text-decoration: underline;
+    color: black;
 }
 
 button {
     padding: 5px 10px;
-    background-color: #007BFF;
+    background-color: #D7C0AE;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -101,7 +164,28 @@ button {
 }
 
 button:hover {
+    background-color: #967E76;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
     background-color: #0056b3;
+}
+
+.btn-primary:active {
+    background-color: #004085;
 }
 
 .popup {
@@ -138,7 +222,6 @@ button:hover {
 
 .popup button {
     padding: 10px 20px;
-    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;

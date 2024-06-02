@@ -32,48 +32,48 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubah data Mahasiswa</title>
+    <title>Ubah Data Mahasiswa</title>
     <link rel="stylesheet" href="styleupmhs.css">
 </head>
 
 <body>
-    <h1>Ubah data mahasiswa</h1>
-
-    <form action="" method="post">
-        <ul>
-            <li>
-                <label for="npm">NPM : </label>
-                <input type="text" name="npm" id="npm" required value="<?= $result["npm"]; ?>" readonly>
-            </li>
-
-            <li>
-                <label for="nama">Nama : </label>
-                <input type="text" name="nama" id="nama" required value="<?= $result["nama"]; ?>">
-            </li>
-
-            <li>
-                <label for="jenis_kelamin">Jenis Kelamin : </label>
-                <input type="text" name="jenis_kelamin" id="jenis_kelamin" required value="<?= $result["jenis_kelamin"]; ?>">
-            </li>
-
-            <li>
-                <label for="semester">Semester : </label>
-                <input type="text" name="semester" id="semester" required value="<?= $result["semester"]; ?>">
-            </li>
-
-            <li>
-                <label for="kode_jurusan">Kode Jurusan : </label>
-                <input type="text" name="kode_jurusan" id="kode_jurusan" required value="<?= $result["kode_jurusan"]; ?>">
-            </li>
-
-            <li>
-                <label for="nip">NIP Dosen : </label>
-                <input type="text" name="nip" id="nip" required value="<?= $result["nip"]; ?>">
-            </li>
-
-            <button type="submit" name="submit">Ubah Data</button>
-        </ul>
-    </form>
+    <h1>Ubah Data Mahasiswa</h1>
+    <div class="box">
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="npm">NPM : </label>
+                    <input type="text" name="npm" id="npm" required value="<?= $result["npm"]; ?>" readonly>
+                </li>
+                
+                <li>
+                    <label for="nama">Nama : </label>
+                    <input type="text" name="nama" id="nama" required value="<?= $result["nama"]; ?>">
+                </li>
+                
+                <li>
+                    <label for="jenis_kelamin">Jenis Kelamin : </label>
+                    <input type="text" name="jenis_kelamin" id="jenis_kelamin" required value="<?= $result["jenis_kelamin"]; ?>">
+                </li>
+                
+                <li>
+                    <label for="semester">Semester : </label>
+                    <input type="text" name="semester" id="semester" required value="<?= $result["semester"]; ?>">
+                </li>
+                
+                <li>
+                    <label for="kode_jurusan">Kode Jurusan : </label>
+                    <input type="text" name="kode_jurusan" id="kode_jurusan" required value="<?= $result["kode_jurusan"]; ?>">
+                </li>
+                
+                <li>
+                    <label for="nip">NIP Dosen : </label>
+                    <input type="text" name="nip" id="nip" required value="<?= $result["nip"]; ?>">
+                </li>
+                
+                <button type="submit" name="submit">Ubah Data</button>
+            </ul>
+        </form>
+    </div>
 </body>
-
 </html>
