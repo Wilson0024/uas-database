@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(../hero-bg.png) no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.box {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 150px;
+    position: relative; /* Ensure the box is positioned relative */
+    z-index: 10; /* Ensure the box is on top of the background */
+}
+
+.box h1, .box p {
+    color: white;
+}
+
+.table-container{
+    overflow-x: auto; /* Ensure table container is scrollable if needed */
+    margin-bottom: 0px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 20px;
+    z-index: 10; /* Ensure the table is on top of other elements */
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid white;
+}
+th:nth-child(1),
+td:nth-child(1) {
+    width: 70px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 250px; 
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 130px;
+}
+th:nth-child(4),
+td:nth-child(4) {
+    width: 230px;
+}
+th:nth-child(5),
+td:nth-child(5) {
+    width: 75px;
+}
+
+th {
+    background-color: #222;
+    color: white;
+}
+
+tr {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    z-index: 15; /* Ensure links are on top of the table */
+}
+
+#a2 {
+    color: black;
+}
+
+#a3 {
+    color: black;
+    font-size: 13px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 30px;
+    line-height: 8px;
+    background-color: #F5E8C7;
+}
+
+button:hover {
+    background-color: #DEBA9D;
+}
+
+.tambahdata {
+    padding: 7px 11px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 140px;
+    height: 25px;
+    line-height: 7px;
+    margin-top: 0px;
+    font-size: 13px;
+}
+
+.tambahdata:hover{
+    background-color: #DEBA9D;
+}
+
+.tambahdatamatkul {
+    padding: 7px 11px;
+    border: none;
+    border-radius: 5px;
+    width: 160px;
+    height: 25px;
+    line-height: 7px;
+    margin-top: 0px;
+    font-size: 13px;
+}
+
+.tambahdatamatkul:hover{
+    background-color: #DEBA9D;
+}

@@ -15,19 +15,17 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <title>Login Admin</title>
-    <link rel = "stylesheet" href = "stylelogin.css">
+    <link rel="stylesheet" href="../assets/css/stylelogin.css">
 </head>
 
 <body>
-    <h2>Login Admin</h2>
-    <?php if (isset($error)) : ?>
-        <p style="color: red; font-style: italic;">Password/Username salah!</p>
-    <?php endif ?>
-    <form action="" method="POST">
-        <label for="user">Username: </label>
-        <input type="text" name="Username" id="user">
-        <label for="pass">Password: </label>
-        <input type="password" name="Pass" id="pass">
+    <form class="box" action="" method="POST">
+        <h1>Login as admin</h1>
+        <?php if (isset($error)) : ?>
+            <p class="error">Password/Username salah!</p>
+        <?php endif ?>
+        <input type="text" name="Username" placeholder="Username" required>
+        <input type="password" name="Pass" placeholder="Password" required>
         <input type="submit" name="submit" value="Login">
     </form>
 </body>

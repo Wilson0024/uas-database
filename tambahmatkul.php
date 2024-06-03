@@ -1,4 +1,5 @@
 <?php
+    require 'islogin.php';
     require 'functions.php';
 
     $kode = $_GET["kode_jurusan"];
@@ -25,26 +26,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Mata Kuliah</title>
-    <link rel="stylesheet" href="styletmbhmatkul.css">
+    <link rel="stylesheet" href="assets/css/tmbhmatkul.css">
 </head>
 <body>
+    <div class="box">
     <h1>Tambah Mata Kuliah</h1>
 
-    <form action="" method="post">
-        <ul>
-            <li>
-            <label for="nama">Nama Mata Kuliah : </label>
-            <input type="text" name="nama_matkul" id="nama" required>
-            </li>
-
-            <li>
-            <label for="sks ">SKS : </label>
-            <input type="text" name="sks" id="sks" required>
-            </li>
-
-
-            <button type="submit" name="submit">Tambah Data</button>
-        </ul>
-    </form>
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="nama">Nama Mata Kuliah : </label>
+                    <input type="text" name="nama_matkul" id="nama" required>
+                </li>
+                
+                <li>
+                    <label for="sks ">SKS : </label>
+                    <input type="text" name="sks" id="sks" required>
+                </li>
+                
+                
+                <button type="submit" name="submit">Tambah Data</button>
+            </ul>
+        </form>
+    </div>
 </body>
 </html>

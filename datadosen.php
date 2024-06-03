@@ -1,12 +1,14 @@
 <?php
-require 'islogin.php';
-require 'functions.php';
+    require 'islogin.php';
+    include 'includes/header.php';
+    $page = 'datadosen'; // Change this variable according to the active page
+    require 'functions.php';
 
-$dosen = query("SELECT * FROM dosen");
+    $dosen = query("SELECT * FROM dosen");
 
-if (isset($_POST["cari"])) {
-    $dosen = caridosen($_POST["keyword"]);
-}
+    if (isset($_POST["cari"])) {
+        $dosen = caridosen($_POST["keyword"]);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,59 +17,50 @@ if (isset($_POST["cari"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin</title>
-    <link rel="stylesheet" href="styledosen.css">
+    <link rel="stylesheet" href="assets/css/styledosen.css">
 </head>
 
 <body>
-    <h1>Data Dosen</h1>
+    <div class="box">
+        <form action="" method="post" class="search-form">
+        <input type="text" name="keyword" placeholder="Masukkan keyword pencarian" autocomplete="off" class="search-input">
+        <button type="submit" name="cari" class="search-button">Cari!</button>
+        </form>
 
-    <br><br>
 
-    <form action="" method="post">
-        <input type="text" name="keyword" size="40" autofocus placeholder="masukkan keyword pencarian" autocomplete="off">
-        <button type="submit" name="cari">Cari!</button>
-    </form>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>NIP</th>
+                    <th>Nama Dosen</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Aksi</th>
+                </tr>
 
-    <table border="1" cellpadding="10" cellspacing="0">
+                <?php $i = 1; ?>
+                <?php foreach ($dosen as $row) : ?>
+                    <tr>
+                        <td><?= $i; ?></td>
+                        <td><?= $row["nip"]; ?></td>
+                        <td><?= $row["nama"]; ?></td>
+                        <td><?= $row["jenis_kelamin"]; ?></td>
+                        <td><?= $row["email"]; ?></td>
+                        <td>
+                            <button><a id="a3" href="updatedosen.php?nip=<?= $row["nip"]; ?>">Ubah</a></button> | 
+                            <button><a id="a3" href="deletedosen.php?nip=<?= $row["nip"]; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a></button>
+                        </td>
+                    </tr>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </table>
+        </div>
 
-        <tr>
-            <th>No.</th>
-            <th>NIP</th>
-            <th>Nama</th>
-            <th>Jenis Kelamin</th>
-            <th>Email</th>
-            <th>Aksi</th>
-        </tr>
+        <button class="tambahdata"><a id="a2" href="tambahdosen.php">Tambah Data Dosen</a></button>
+    </div>
 
-        <?php $i = 1 ?>
-
-        <?php foreach ($dosen as $row) : ?>
-
-            <tr>
-                <td><?= $i ?></td>
-                <td><?= $row["nip"] ?></td>
-                <td><?= $row["nama"] ?></td>
-                <td><?= $row["jenis_kelamin"] ?></td>
-                <td><?= $row["email"] ?></td>
-                <td>
-                    <button><a href="updatedosen.php?nip=<?= $row["nip"] ?>">Ubah</a></button> |
-                    <button><a href="deletedosen.php?nip=<?= $row["nip"] ?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">hapus</a></button>
-                </td>
-            </tr>
-
-            <?php $i++ ?>
-
-        <?php endforeach ?>
-
-    </table>
-
-    <a href="tambahdosen.php">Tambah Data Dosen</a>
-
+    <?php include('includes/footer.php'); ?>
 </body>
 
 </html>
-
-<?php
-include('includes/footer.php');
-?>

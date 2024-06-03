@@ -1,4 +1,5 @@
 <?php
+    require 'islogin.php';
     require 'functions.php';
 
     if(isset($_POST["submit"])){
@@ -16,13 +17,13 @@
          }
          else if(tambahmhs($_POST) == -2){
             echo "<script>
-                 alert('kode_jurusan tidak ada di database');
+                 alert('kode jurusan tidak ada di database');
                  document.location.href = 'datamhs.php';
              </script>";
          }
          else if(tambahmhs($_POST) == -3){
             echo "<script>
-                 alert('kode_jurusan dan dosen tidak ada di database');
+                 alert('kode jurusan dan dosen tidak ada di database');
                  document.location.href = 'datamhs.php';
              </script>";
          }
@@ -40,46 +41,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah data Mahasiswa</title>
-    <link rel="stylesheet" href="styletmbhmhs.css">
+    <title>Tambah Data Mahasiswa</title>
+    <link rel="stylesheet" href="assets/css/tmbhmhs.css">
 </head>
 <body>
-    <h1>Tambah data mahasiswa</h1>
+    <div class="box">
+    <h1>Tambah Data Mahasiswa</h1>
 
-    <form action="" method="post">
-        <ul>
-            <li>
-            <label for="npm">NPM : </label>
-            <input type="text" name="npm" id="npm" required>
-            </li>
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="npm">NPM : </label>
+                    <input type="text" name="npm" id="npm" required>
+                </li>
+                
+                <li>
+                    <label for="nama">Nama : </label>
+                    <input type="text" name="nama" id="nama" required>
+                </li>
+                
+                <li>
+                    <label for="jenis_kelamin">Jenis Kelamin : </label>
+                    <input type="text" name="jenis_kelamin" id="jenis_kelamin" required>
+                </li>
+                
+                <li>
+                    <label for="semester">Semester : </label>
+                    <input type="text" name="semester" id="semester" required>
+                </li>
+                
+                <li>
+                    <label for="kode_jurusan">Kode Jurusan (2 digit pertama NPM) : </label>
+                    <input type="text" name="kode_jurusan" id="kode_jurusan" required>
+                </li>
 
-            <li>
-            <label for="nama">Nama : </label>
-            <input type="text" name="nama" id="nama" required>
-            </li>
+                <li>
+                    <label for=""nip>NIP Dosen Bimbingan : </label>
+                    <input type="text" name="nip" id="nip" required>
+                </li>
 
-            <li>
-            <label for="jenis_kelamin">Jenis Kelamin : </label>
-            <input type="text" name="jenis_kelamin" id="jenis_kelamin" required>
-            </li>
-
-            <li>
-            <label for="semester">Semester : </label>
-            <input type="text" name="semester" id="semester" required>
-            </li>
-
-            <li>
-            <label for="kode_jurusan">Kode Jurusan (2 digit pertama NPM) : </label>
-            <input type="text" name="kode_jurusan" id="kode_jurusan" required>
-            </li>
-
-            <li>
-            <label for="nip">NIP Dosen Bimbingan : </label>
-            <input type="text" name="nip" id="nip" required>
-            </li>
-
-            <button type="submit" name="submit">Tambah Data</button>
-        </ul>
-    </form>
+                <button type="submit" name="submit">Tambah Data</button>
+            </ul>
+        </form>
+    </div>
 </body>
 </html>
