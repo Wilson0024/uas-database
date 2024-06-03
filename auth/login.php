@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <title>Login Admin</title>
-    <link rel="stylesheet" href="stylelogin.css">
+    <link rel="stylesheet" href="../assets/css/stylelogin.css">
 </head>
 
 <body>

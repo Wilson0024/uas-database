@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: url(dosen2.png) no-repeat;
+    background: url(../mahasiswa2.png) no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -17,7 +17,7 @@ body {
     width: 100%;
     max-width: 1000px;
     padding: 19px;
-    background-color: black; /* Dark background color */
+    background-color: navy; /* Dark background color */
     color: white;
     border: 5px solid white; /* White border to mimic a frame */
     box-shadow: 10 10 20px rgba(0, 0, 0, 0.5); /* Shadow for a 3D effect */
@@ -82,12 +82,12 @@ th, td {
 }
 
 th {
-    background-color: grey;
+    background-color: #BDB76B;
     color:black;
 }
 
 tr {
-    background-color: lightgray;
+    background-color: #CD853F;
     color: black;
 }
 
@@ -98,12 +98,12 @@ a {
 
 .a2 {
     text-decoration: underline;
-    color: lightcyan;
+    color: lightpink;
 }
 
 .a2:hover {
     text-decoration: underline;
-    color: lightskyblue;
+    color: lightcoral;
 }
 
 #a3 {

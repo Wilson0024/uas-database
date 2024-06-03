@@ -29,7 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Mahasiswa</title>
-    <link rel="stylesheet" href="styletmbhmhs.css">
+    <link rel="stylesheet" href="../assets/css/styletmbhmhs.css">
 </head>
 <body>
     <h1>Tambah Data Mahasiswa</h1>

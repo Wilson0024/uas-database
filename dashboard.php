@@ -9,7 +9,7 @@ require 'islogin.php';
     <a href="datadosen.php" class="dashboard-link">Dosen</a>
     <a href="datamhs.php" class="dashboard-link">Mahasiswa</a>
     <a href="datajurusan.php" class="dashboard-link">Jurusan</a>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </div>
 
 <?php

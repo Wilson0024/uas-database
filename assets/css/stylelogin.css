@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url(login.png);
+    background-image: url(../white-texture.jpg);
     background-attachment: fixed;
     background-size: cover;
     display: flex;
@@ -15,15 +15,22 @@ body {
     width: 300px;
     padding: 40px;
     position: relative;
-    backdrop-filter: blur(50px);  
+    backdrop-filter: blur(0px);
+    /* Reduced blur for non-hover state */
     background-position: center;
     background-attachment: fixed;
     text-align: center;
-    box-shadow: 0 15px 25px black;
+    box-shadow: 0 10px 15px black;
     border-radius: 10px;
+    transition: background 0.3s, backdrop-filter 0.3s;
+    /* Added backdrop-filter transition */
 }
+
 .box:hover {
-    background: #f0f0f0;
+    background: rgba(238, 227, 203, 0.7);
+    /* Semi-transparent background on hover */
+    backdrop-filter: blur(10px);
+    /* Added blur on hover */
 }
 
 .box h1 {
@@ -34,7 +41,8 @@ body {
     font-size: 24px;
 }
 
-.box input[type="text"], .box input[type="password"] {
+.box input[type="text"],
+.box input[type="password"] {
     border: none;
     background: none;
     display: block;
@@ -46,10 +54,11 @@ body {
     outline: none;
     color: black;
     border-radius: 5px;
-    transition: 0.25s;
+    transition: width 0.25s, border-color 0.25s;
 }
 
-.box input[type="text"]:focus, .box input[type="password"]:focus {
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
     width: 280px;
     border-color: #2d8cf0;
 }
@@ -71,7 +80,7 @@ body {
 
 .box input[type="submit"]:hover {
     background: #2d8cf0;
-    color: #fff;
+    color: #F5E8C7;
 }
 
 .error {
