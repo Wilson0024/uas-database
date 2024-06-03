@@ -1,5 +1,6 @@
 <?php
 require 'functions.php';
+require 'islogin.php';
 $kode_mk = $_GET["kode_mk"];
 
 $result = query("SELECT * FROM matakuliah WHERE kode_mk = '$kode_mk'")[0];
@@ -26,12 +27,12 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Data Jurusan</title>
-    <link rel="stylesheet" href="../assets/css/styleupmatkul.css">
+    <link rel="stylesheet" href="assets/css/styleupmatkul.css">
 </head>
 
 <body>
-    <h1>Ubah Data Matkul</h1>
     <div class="box">
+    <h1>Ubah Data Matkul</h1>
         <form action="" method="post">
             <ul>
                 <li>

@@ -1,5 +1,7 @@
 <?php
 require 'functions.php';
+include 'includes/header.php';
+$page = 'datajurusan';
 require 'islogin.php';
 
 // Ambil semua data jurusan
@@ -18,56 +20,43 @@ $mata_kuliah = query("SELECT * FROM matakuliah");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Jurusan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/stylejurusan.css">
-    <style>
-        .expand-button {
-            cursor: pointer;
-        }
-        .expand-button i {
-            transition: transform 0.3s ease;
-            transform: rotate(90deg);
-        }
-        .expand-button.expanded i {
-            transform: rotate(0deg);
-        }
-        .hidden-row {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/stylejurusan.css">
 </head>
 
 <body>
-    <div class="box">
+    <div class="container">
+        <div class ="box">
+            <div class="table-container">
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Nama Jurusan</th>
+            <th>Kode Jurusan</th>
+            <th>Aksi</th>
+            <th></th> <!-- Kolom untuk tombol expand -->
+        </tr>
 
-        <table border="1" cellpadding="10" cellspacing="0">
+        <?php $i = 1; ?>
+        <?php foreach ($jurusan as $row) : ?>
             <tr>
-                <th>No.</th>
-                <th>Kode Jurusan</th>
-                <th>Nama Jurusan</th>
-                <th>Aksi</th>
-                <th></th> <!-- Kolom untuk tombol expand -->
+                <td><?= $i ?></td>
+                <td><?= $row["nama_jurusan"] ?></td>
+                <td><?= $row["kode_jurusan"] ?></td>
+                <td>
+                    <button><a id="a3" href="updatejurusan.php?kode_jurusan=<?= $row["kode_jurusan"] ?>">Ubah</a></button> |
+                    <button><a id="a3" href="deletejurusan.php?kode_jurusan=<?= $row["kode_jurusan"] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a></button>
+                </td>
+                <td>
+                    <button class="expand-button collapsed" onclick="toggleExpand(this, 'row-<?= $i ?>')">
+                        <i class="fa-solid fa-caret-down"></i>
+        </button>
+                </td>
             </tr>
-            
-            <?php $i = 1; ?>
-            <?php foreach ($jurusan as $row) : ?>
-                <tr>
-                    <td><?= $i ?></td>
-                    <td><?= $row["kode_jurusan"] ?></td>
-                    <td><?= $row["nama_jurusan"] ?></td>
-                    <td>
-                        <button><a id="a2" href="updatejurusan.php?kode_jurusan=<?= $row["kode_jurusan"] ?>">Ubah</a></button> |
-                        <button><a id="a2" href="deletejurusan.php?kode_jurusan=<?= $row["kode_jurusan"] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a></button>
-                    </td>
-                    <td>
-                        <div class="expand-button collapsed" onclick="toggleExpand(this, 'row-<?= $i ?>')">
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </td>
-                </tr>
-                <tr id="row-<?= $i ?>" class="hidden-row">
-                    <td colspan="5">
-                        <table border="1" cellpadding="10" cellspacing="0">
-                            <tr>
+            <tr id="row-<?= $i ?>" class="hidden-row" style="display: none;">
+                <td colspan="5">
+                <div class="table-container">
+                    <table>
+                        <tr>
                             <th>Kode MK</th>
                             <th>Nama MK</th>
                             <th>SKS</th>
@@ -81,45 +70,49 @@ $mata_kuliah = query("SELECT * FROM matakuliah");
                                     <td><?= $mk["nama_mk"] ?></td>
                                     <td><?= $mk["sks"] ?></td>
                                     <td>
-                                        <button><a id="a4" href="updatematkul.php?kode_mk=<?= $temp2 ?>">Ubah</a></button> |
-                                        <button><a id="a4" href="deletematkul.php?kode_mk=<?= $temp2 ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a></button>
+                                        <button><a id="a3" href="updatematkul.php?kode_mk=<?= $temp2 ?>">Ubah</a></button> |
+                                        <button><a id="a3" href="deletematkul.php?kode_mk=<?= $temp2 ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a></button>
                                     </td>
                                 </tr>
-                                <?php endif; ?>
-                                <?php endforeach; ?>
-                                <tr>
-                                    <td colspan="4"><a id="a5" href="tambahmatkul.php?kode_jurusan=<?= $row["kode_jurusan"] ?>">Tambah Mata Kuliah</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <?php $i++; ?>
-                    <?php endforeach; ?>
-                </table>
-                
-                <br>
-                <a href="tambahjurusan.php" class="btn-primary">Tambah Jurusan</a>
-
-                <div id="popup" class="popup">
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <tr>
+                            <td colspan="4"><button class="tambahdatamatkul"><a id="a2" href="tambahmatkul.php?kode_jurusan=<?= $row["kode_jurusan"] ?>">Tambah Mata Kuliah</a></button></td>
+                        </tr>
+                    </table>
+                            </div>
+                </td>
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+    </table>
+                            </div>
+    <br>
+    <button class="tambahdata"><a id="a2" href="tambahjurusan.php">Tambah Jurusan</a></button>
+                            </div>
+    <div id="popup" class="popup">
         <form id="popupForm" method="post">
             <input type="hidden" name="kode_mk" id="kode_mk">
             <input type="hidden" name="kode_jurusan" id="kode_jurusan">
-            <div id="popupContent"></div>
-            <button type="button" onclick="closePopup()">Batal</button>
         </form>
     </div>
 
     <script>
         function toggleExpand(button, rowId) {
             const row = document.getElementById(rowId);
+            const icon = button.querySelector('i');
             if (row.style.display === "none" || row.style.display === "") {
                 row.style.display = "table-row";
                 button.classList.remove('collapsed');
                 button.classList.add('expanded');
+                icon.classList.remove('fa-caret-down');
+                icon.classList.add('fa-caret-left');
             } else {
                 row.style.display = "none";
                 button.classList.remove('expanded');
                 button.classList.add('collapsed');
+                icon.classList.remove('fa-caret-left');
+                icon.classList.add('fa-caret-down');
             }
         }
 
@@ -127,40 +120,35 @@ $mata_kuliah = query("SELECT * FROM matakuliah");
             const popup = document.getElementById('popup');
             const popupForm = document.getElementById('popupForm');
             const popupContent = document.getElementById('popupContent');
-            
+
             document.getElementById('kode_mk').value = kode_mk;
             document.getElementById('kode_jurusan').value = kode_jurusan;
 
             if (action === 'edit') {
                 popupForm.action = 'updatematkul.php';
                 popupContent.innerHTML = `
-                <label for="nama_mk">Nama Mata Kuliah: </label>
-                <input type="text" name="nama_mk" id="nama_mk" value="${nama_mk}" required><br>
-                <label for="sks">SKS: </label>
-                <input type="number" name="sks" id="sks" value="${sks}" required><br>
-                <button type="submit">Ubah</button>
+                    <label for="nama_mk">Nama Mata Kuliah: </label>
+                    <input type="text" name="nama_mk" id="nama_mk" value="${nama_mk}" required><br>
+                    <label for="sks">SKS: </label>
+                    <input type="number" name="sks" id="sks" value="${sks}" required><br>
+                    <button type="submit">Ubah</button>
                 `;
             } else if (action === 'delete') {
                 popupForm.action = 'deletematkul.php?kode_jurusan=<?= $row["kode_jurusan"] ?>';
                 popupContent.innerHTML = `
-                <p>Apakah Anda yakin ingin menghapus mata kuliah dengan kode ${kode_mk}?</p>
-                <button type="submit">Hapus</button>
+                    <p>Apakah Anda yakin ingin menghapus mata kuliah dengan kode ${kode_mk}?</p>
+                    <button type="submit">Hapus</button>
                 `;
             }
-            
+
             popup.classList.add('active');
         }
-        
+
         function closePopup() {
             const popup = document.getElementById('popup');
             popup.classList.remove('active');
         }
-        </script>
-    </div>
+    </script>
 </body>
 
 </html>
-
-<?php
-include ('includes/footer.php');
-?>

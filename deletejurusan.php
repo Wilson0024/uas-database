@@ -1,5 +1,6 @@
 <?php
     require 'functions.php';
+    require 'islogin.php';
 
     $kode_jurusan = $_GET["kode_jurusan"];
     if(hapusjurusan($kode_jurusan)>0) {

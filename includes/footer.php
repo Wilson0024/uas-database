@@ -1,7 +1,7 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container text-white text-end py-3">
-            &copy; 2024 Admin Dashboard.
+            &copy; 2024 Admin Dashboard
         </div>
     </footer>
     <!-- Footer Section End -->

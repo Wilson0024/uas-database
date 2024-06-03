@@ -1,41 +1,10 @@
-<?php
-require 'functions.php';
-require 'islogin.php';
-
-$kode_jurusan = $_GET["kode_jurusan"];
-
-$result = query("SELECT * FROM jurusan WHERE kode_jurusan = '$kode_jurusan'")[0];
-
-if (isset($_POST["submit"])) {
-    if (updatejurusan($_POST) > 0) {
-        echo "<script>
-                alert('data berhasil diubah');
-                document.location.href = 'datajurusan.php';
-            </script>";
-    } else {
-        echo "<script>
-                alert('data gagal diubah');
-                document.location.href = 'datajurusan.php';
-            </script>";
-    }
-}
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubah Data Jurusan</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            margin: 150px;
             padding: 0;
-            background: url(assets/hero-bg.png) no-repeat center center fixed;
+            background: url(../hero-bg.png) no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -57,7 +26,7 @@ if (isset($_POST["submit"])) {
             border-radius: 10px;
             box-shadow: 0 10px 15px black;
             width: 400px;
-            height: 270px;
+            height: 655px;
             text-align: center;
             backdrop-filter: blur(0px); /* Apply blur effect */
             transition: background 0.3s, backdrop-filter 0.3s;
@@ -105,37 +74,13 @@ if (isset($_POST["submit"])) {
             border-radius: 4px;
             cursor: pointer;
             margin-top: 0px;
-            width: 125px;
+            width: 140px;
             height: 30px;
             line-height: 8px;
             transition: background-color 0.25s;
             font-family: 'Poppins', sans-serif;
-
         }
 
         button[type="submit"]:hover {
             background-color: #a5a3a3;
         }
-    </style>
-</head>
-
-<body>
-    <form class="box" action="" method="post">
-        <h1>Ubah Data Jurusan</h1>
-        <ul>
-            <li>
-                <label for="kode_jurusan" >Kode Jurusan : </label>
-                <input type="text" name="kode_jurusan" id="kode_jurusan" required value="<?= $result["kode_jurusan"]; ?>" readonly>
-            </li>
-            <li>
-                <label for="nama_jurusan" >Nama Jurusan : </label>
-                <input type="text" name="nama_jurusan" id="nama_jurusan" required value="<?= $result["nama_jurusan"]; ?>">
-            </li>
-            <li>
-                <button type="submit" name="submit">Ubah Data</button>
-            </li>
-        </ul>
-    </form>
-</body>
-
-</html>

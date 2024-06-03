@@ -1,5 +1,6 @@
 <?php
     require 'functions.php';
+    require 'islogin.php';
 
     if(isset($_POST["submit"])){
         if(tambahdosen($_POST) > 0){
@@ -23,7 +24,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Dosen</title>
-    <link rel="stylesheet" href="../assets/css/styletmbhdosen.css">
+    <link rel="stylesheet" href="assets/css/tmbhdosen.css">
 </head>
 <body>
     <div class="box">

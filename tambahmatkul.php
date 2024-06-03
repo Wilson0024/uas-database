@@ -1,4 +1,5 @@
 <?php
+    require 'islogin.php';
     require 'functions.php';
 
     $kode = $_GET["kode_jurusan"];
@@ -25,11 +26,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Mata Kuliah</title>
-    <link rel="stylesheet" href="../assets/css/styletmbhmatkul.css">
+    <link rel="stylesheet" href="assets/css/tmbhmatkul.css">
 </head>
 <body>
-    <h1>Tambah Mata Kuliah</h1>
     <div class="box">
+    <h1>Tambah Mata Kuliah</h1>
+
         <form action="" method="post">
             <ul>
                 <li>

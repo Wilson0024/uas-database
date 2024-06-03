@@ -1,5 +1,6 @@
 <?php
     require 'functions.php';
+    require 'islogin.php';
 
     $kode_mk = $_GET["kode_mk"];
     if(hapusmatkul($kode_mk)>0) {

@@ -1,4 +1,5 @@
 <?php
+require 'islogin.php';
 require 'functions.php';
 $npm = $_GET["npm"];
 
@@ -33,12 +34,13 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Data Mahasiswa</title>
-    <link rel="stylesheet" href="../assets/css/styleupmhs.css">
+    <link rel="stylesheet" href="assets/css/styleupmhs.css">
 </head>
 
 <body>
-    <h1>Ubah Data Mahasiswa</h1>
+    
     <div class="box">
+    <h1>Ubah Data Mahasiswa</h1>
         <form action="" method="post">
             <ul>
                 <li>

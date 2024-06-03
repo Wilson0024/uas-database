@@ -1,17 +1,20 @@
 <?php
 require 'functions.php';
-
-$popup_message = "";
-$popup_type = ""; // 'success' or 'error'
+require 'islogin.php';
 
 if (isset($_POST["submit"])) {
-    if (tambahjurusan($_POST) > 0) {
-        $popup_message = "Data berhasil ditambahkan";
-        $popup_type = "success";
-    } else {
-        $popup_message = "Data gagal ditambahkan";
-        $popup_type = "error";
-    }
+    if(tambahjurusan($_POST) > 0){
+        echo "<script>
+             alert('data berhasil ditambahkan');
+             document.location.href = 'datajurusan.php';
+         </script>";
+     }
+     else{
+         echo "<script>
+             alert('data gagal ditambahkan');
+             document.location.href = 'datajurusan.php';
+         </script>";
+     }
 }
 ?>
 
@@ -22,12 +25,13 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Jurusan</title>
-    <link rel="stylesheet" href="../assets/css/styletmbhjurusan.css">
+    <link rel="stylesheet" href="assets/css/tmbhjurusan.css">
 </head>
 
 <body>
-    <h1>Tambah Jurusan</h1>
     <div class="box">
+    <h1>Tambah Jurusan</h1>
+
         <form action="" method="post">
             <ul>
                 <li>
@@ -44,28 +48,6 @@ if (isset($_POST["submit"])) {
             </ul>
         </form>
         
-        <!-- Pop-up -->
-        <div class="overlay" id="overlay"></div>
-        <div class="popup <?= $popup_type ?>" id="popup">
-            <p><?= $popup_message ?></p>
-        </div>
-        
-        <script>
-            // Show popup if there's a message
-            const popupMessage = "<?= $popup_message ?>";
-            if (popupMessage) {
-                document.getElementById('popup').style.display = 'block';
-                document.getElementById('overlay').style.display = 'block';
-            }
-            
-            // Close popup function
-            function closePopup() {
-                document.getElementById('popup').style.display = 'none';
-                document.getElementById('overlay').style.display = 'none';
-                // Redirect to datajurusan.php after closing the popup
-                window.location.href = 'datajurusan.php';
-            }
-        </script>
     </div>
 </body>
 

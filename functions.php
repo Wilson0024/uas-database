@@ -88,7 +88,13 @@ function hapusmhs($datanpm) {
 
 function hapusdosen($datanip) {
     global $db;
+    $query2 = "SELECT * FROM mahasiswa WHERE nip = '$datanip'";
     $query = "DELETE FROM dosen WHERE nip = '$datanip'";
+
+    if(mysqli_query($db, $query2)>0){
+        return -1;
+    }
+    
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }

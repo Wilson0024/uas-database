@@ -1,5 +1,6 @@
 <?php
     require 'islogin.php';
+    include 'includes/header.php';
     $page = 'datadosen'; // Change this variable according to the active page
     require 'functions.php';
 
@@ -16,9 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin</title>
-    <link rel="stylesheet" href="assets/css/styledosen.css"> <!-- Include your custom CSS file -->
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styledosen.css">
 </head>
 
 <body>
@@ -34,8 +33,8 @@
                 <tr>
                     <th>No.</th>
                     <th>NIP</th>
-                    <th>Nama</th>
-                    <th>Jenis Kelamin</th>
+                    <th>Nama Dosen</th>
+                    <th>Gender</th>
                     <th>Email</th>
                     <th>Aksi</th>
                 </tr>
@@ -49,7 +48,7 @@
                         <td><?= $row["jenis_kelamin"]; ?></td>
                         <td><?= $row["email"]; ?></td>
                         <td>
-                            <button><a id="a3" href="updatedosen.php?nip=<?= $row["nip"]; ?>">Ubah</a></button> |
+                            <button><a id="a3" href="updatedosen.php?nip=<?= $row["nip"]; ?>">Ubah</a></button> | 
                             <button><a id="a3" href="deletedosen.php?nip=<?= $row["nip"]; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a></button>
                         </td>
                     </tr>
@@ -58,7 +57,7 @@
             </table>
         </div>
 
-        <a class="a2" href="tambahdosen.php">Tambah Data Dosen</a>
+        <button class="tambahdata"><a id="a2" href="tambahdosen.php">Tambah Data Dosen</a></button>
     </div>
 
     <?php include('includes/footer.php'); ?>

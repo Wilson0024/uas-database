@@ -1,241 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background: url(../jurusan3.png) no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    background: url(../hero-bg.png) no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     align-items: center;
     justify-content: flex-start;
+    height: 100vh;
 }
 
 .box {
     width: 100%;
-    max-width: 1000px;
-    padding: 19px;
-    background-color: #FAF0E6; /* Dark background color */
-    color: black;
-    border: 5px solid black; /* White border to mimic a frame */
-    box-shadow: 10 10 20px rgba(0, 0, 0, 0.5); /* Shadow for a 3D effect */
-    border-radius: 10px; /* Rounded corners */
-    text-align: left;
-    position: relative;
-    margin-top: 50px;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 150px;
+    position: relative; /* Ensure the box is positioned relative */
+    z-index: 10; /* Ensure the box is on top of the background */
 }
 
 .box h1, .box p {
-    color: #ecf0f1; /* Light gray for a chalk effect */
-    font-family: 'Shadows Into Light', cursive; /* Handwritten font */
+    color: white;
 }
 
-.box::before, .box::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: black; /* Same color as border for frame effect */
-    left: 0;
-}
-
-.box::before {
-    top: -5px;
-}
-
-.box::after {
-    bottom: -5px;
-}
-
-header {
-    width: 100%;
-    background-color: black;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-h1 {
-    width: 100%;
-    height: 20%;
-    background-color: black;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+.table-container{
+    overflow-x: auto; /* Ensure table container is scrollable if needed */
+    margin-bottom: 0px;
 }
 
 table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid black;
+    z-index: 10; /* Ensure the table is on top of other elements */
 }
 
 th, td {
     padding: 12px;
     text-align: center;
+    border: 1px solid white;
+}
+th:nth-child(1),
+td:nth-child(1) {
+    width: 70px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 250px; 
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 130px;
+}
+th:nth-child(4),
+td:nth-child(4) {
+    width: 230px;
+}
+th:nth-child(5),
+td:nth-child(5) {
+    width: 75px;
 }
 
 th {
-    background-color: #BDB76B;
-    color:black;
+    background-color: #222;
+    color: white;
 }
 
 tr {
-    background-color: #CD853F;
-    color: black;
-}
-
-.hidden-row table {
-    width: 100%;
-    margin-top: 10px;
-    border: none;
-}
-
-.hidden-row table, .hidden-row th, .hidden-row td {
-    border: 1px solid black;
-}
-
-.hidden-row th {
-    background-color: #BDB76B;
-}
-
-.expand-button {
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.expand-button.collapsed .fa-caret-down {
-    transform: rotate(-90deg);
-}
-
-.expand-button.expanded .fa-caret-down {
-    transform: rotate(0deg);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 a {
     text-decoration: none;
     color: white;
+    z-index: 15; /* Ensure links are on top of the table */
 }
 
 #a2 {
-    text-decoration: none;
     color: black;
 }
 
-.a3 {
-    text-decoration: none;
+#a3 {
     color: black;
-}
-
-#a4 {
-    text-decoration: none;
-    color: black;
-}
-
-#a5 {
-    text-decoration: underline;
-    color: white;
-}
-
-#a5:hover {
-    text-decoration: underline;
-    color: black;
+    font-size: 13px;
 }
 
 button {
-    padding: 5px 10px;
-    background-color: #D7C0AE;
+    padding: 8px 16px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
-    margin: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 30px;
+    line-height: 8px;
+    background-color: #F5E8C7;
 }
 
 button:hover {
-    background-color: #967E76;
+    background-color: #DEBA9D;
 }
 
-.btn-primary {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    background-color: #007bff;
+.tambahdata {
+    padding: 7px 11px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 140px;
+    height: 25px;
+    line-height: 7px;
+    margin-top: 0px;
+    font-size: 13px;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+.tambahdata:hover{
+    background-color: #DEBA9D;
 }
 
-.btn-primary:active {
-    background-color: #004085;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 1000;
-    width: 300px;
-    max-width: 90%;
-}
-
-.popup.active {
-    display: block;
-}
-
-.popup label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.popup input[type="text"], .popup input[type="number"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.popup button {
-    padding: 10px 20px;
-    color: white;
+.tambahdatamatkul {
+    padding: 7px 11px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 5px;
+    width: 160px;
+    height: 25px;
+    line-height: 7px;
+    margin-top: 0px;
+    font-size: 13px;
 }
 
-.popup button:hover {
-    background-color: #45a049;
-}
-
-.popup button[type="button"] {
-    background-color: #f44336;
-}
-
-.popup button[type="button"]:hover {
-    background-color: #e53935;
+.tambahdatamatkul:hover{
+    background-color: #DEBA9D;
 }

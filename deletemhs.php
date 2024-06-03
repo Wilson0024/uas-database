@@ -1,5 +1,6 @@
 <?php
     require 'functions.php';
+    require 'islogin.php';
 
     $npm = $_GET["npm"];
     if(hapusmhs($npm)>0){

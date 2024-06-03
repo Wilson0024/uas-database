@@ -1,5 +1,6 @@
 <?php
 require 'functions.php';
+require 'islogin.php';
 $nip = $_GET["nip"];
 
 $result = query("SELECT * FROM dosen WHERE nip = '$nip'")[0];
@@ -26,12 +27,12 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Data Dosen</title>
-    <link rel="stylesheet" href="../assets/css/styleupdosen.css">
+    <link rel="stylesheet" href="assets/css/styleupdosen.css">
 </head>
 
 <body>
-    <h1>Ubah Data Dosen</h1>
     <div class="box">
+    <h1>Ubah Data Dosen</h1>
         <form action="" method="post">
             <ul>
                 <li>

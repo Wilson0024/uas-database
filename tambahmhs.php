@@ -1,4 +1,5 @@
 <?php
+    require 'islogin.php';
     require 'functions.php';
 
     if(isset($_POST["submit"])){
@@ -11,6 +12,18 @@
         else if(tambahmhs($_POST) == -1){
             echo "<script>
                  alert('dosen tidak ada di database');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         }
+         else if(tambahmhs($_POST) == -2){
+            echo "<script>
+                 alert('kode jurusan tidak ada di database');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         }
+         else if(tambahmhs($_POST) == -3){
+            echo "<script>
+                 alert('kode jurusan dan dosen tidak ada di database');
                  document.location.href = 'datamhs.php';
              </script>";
          }
@@ -29,11 +42,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Mahasiswa</title>
-    <link rel="stylesheet" href="../assets/css/styletmbhmhs.css">
+    <link rel="stylesheet" href="assets/css/tmbhmhs.css">
 </head>
 <body>
-    <h1>Tambah Data Mahasiswa</h1>
     <div class="box">
+    <h1>Tambah Data Mahasiswa</h1>
+
         <form action="" method="post">
             <ul>
                 <li>
