@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <form class="box" action="" method="POST">
-        <h1>Login</h1>
+        <h1>Login as admin</h1>
         <?php if (isset($error)) : ?>
             <p class="error">Password/Username salah!</p>
         <?php endif ?>
