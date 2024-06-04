@@ -9,6 +9,12 @@ if (isset($_POST["submit"])) {
              document.location.href = 'datajurusan.php';
          </script>";
      }
+     else if(tambahjurusan($_POST) == -1){
+        echo "<script>
+             alert('data gagal ditambahkan karena KODE JURUSAN sudah ada');
+             document.location.href = 'datajurusan.php';
+         </script>";
+     }
      else{
          echo "<script>
              alert('data gagal ditambahkan');

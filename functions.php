@@ -25,21 +25,30 @@ function tambahmhs($data) {
     // Check if nip exists in dosen
     $result = mysqli_query($db, "SELECT nip FROM dosen WHERE nip = '$nip'");
     $result2 = mysqli_query($db, "SELECT kode_jurusan FROM jurusan WHERE kode_jurusan = '$kode_jurusan'");
+    $result3 = mysqli_query($db, "SELECT npm FROM mahasiswa WHERE npm = '$npm'");
     
-    if (mysqli_num_rows($result) > 0 && mysqli_num_rows($result2) > 0) {
+    if (mysqli_num_rows($result) > 0 && mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) == 0) {
         // Insert data into mahasiswa
         $query = "INSERT INTO mahasiswa (npm, nama, jenis_kelamin, semester, kode_jurusan, nip) VALUES ('$npm', '$nama', '$jenis_kelamin', '$semester', '$kode_jurusan', '$nip')";
         mysqli_query($db, $query);
         
         return mysqli_affected_rows($db);
-    } else if(mysqli_num_rows($result) == 0 && mysqli_num_rows($result2) > 0){
+    } else if(mysqli_num_rows($result2) > 0 && mysqli_num_rows($result) == 0 && mysqli_num_rows($result3) == 0){
         return -1;
-    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) > 0){
+    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) > 0 && mysqli_num_rows($result3) == 0){
         return -2;
-    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) == 0){
+    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) == 0 && mysqli_num_rows($result3) == 0){
         return -3;
-    } else{
+    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) > 0 && mysqli_num_rows($result3) > 0){
         return -4;
+    } else if(mysqli_num_rows($result2) > 0 && mysqli_num_rows($result) == 0 && mysqli_num_rows($result3) > 0){
+        return -5;
+    } else if(mysqli_num_rows($result2) == 0 && mysqli_num_rows($result) == 0 && mysqli_num_rows($result3) > 0){
+        return -6;
+    } else if(mysqli_num_rows($result2) > 0 && mysqli_num_rows($result) > 0 && mysqli_num_rows($result3) > 0){
+        return -7;
+    } else {
+        return -8;
     }
 }
 
@@ -50,9 +59,14 @@ function tambahdosen($data) {
     $jenis_kelamin = htmlspecialchars($data["jenis_kelamin"]);
     $email = htmlspecialchars($data["email"]);
 
+    $deteksiquery = "SELECT * FROM dosen WHERE nip = '$nip'";
+    $deteksi = mysqli_query($db, $deteksiquery);
+    if(mysqli_num_rows($deteksi)> 0){
+        return -1;
+    }
+
     $query = "INSERT INTO dosen values ('$nip', '$nama', '$jenis_kelamin', '$email')";
     mysqli_query($db, $query);
-
     return mysqli_affected_rows($db);
 }
 
@@ -60,6 +74,12 @@ function tambahjurusan($data) {
     global $db;
     $nama_jurusan = htmlspecialchars($data["nama_jurusan"]);
     $kode_jurusan = htmlspecialchars($data["kode_jurusan"]);
+
+    $deteksiquery = "SELECT * FROM jurusan WHERE kode_jurusan = '$kode_jurusan'";
+    $deteksi = mysqli_query($db, $deteksiquery);
+    if(mysqli_num_rows($deteksi)> 0){
+        return -1;
+    }
 
     $query = "INSERT INTO jurusan values ('$kode_jurusan', '$nama_jurusan')";
     mysqli_query($db, $query);
@@ -91,10 +111,12 @@ function hapusdosen($datanip) {
     $query2 = "SELECT * FROM mahasiswa WHERE nip = '$datanip'";
     $query = "DELETE FROM dosen WHERE nip = '$datanip'";
 
-    if(mysqli_query($db, $query2)>0){
+    $result = mysqli_query($db, $query2);
+
+    if(mysqli_num_rows($result)>0){
         return -1;
     }
-    
+
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
@@ -164,7 +186,8 @@ function updatemhs($data) {
         mysqli_query($db, $query);
         return mysqli_affected_rows($db);
     }
-    else {
+    else
+    {
         return -1;
     }
 }

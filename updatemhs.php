@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
                 alert('dosen tidak ada di database');
                 document.location.href = 'datamhs.php';
             </script>";
-    } 
+    }
     else {
         echo "<script>
                 alert('data gagal diubah');

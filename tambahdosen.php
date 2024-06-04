@@ -9,9 +9,15 @@
                 document.location.href = 'datadosen.php';
             </script>";
         }
+        else if(tambahdosen($_POST) == -1){
+            echo "<script>
+                alert('data gagal ditambahkan karena NIP dosen sudah ada');
+                document.location.href = 'datadosen.php';
+            </script>";
+        }
         else{
             echo "<script>
-                alert('data gagal ditambahkan');
+                alert('data gagal ditambahkan karena NIP dosen sudah ada');
                 document.location.href = 'datadosen.php';
             </script>";
         }

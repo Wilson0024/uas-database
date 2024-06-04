@@ -26,6 +26,27 @@
                  alert('kode jurusan dan dosen tidak ada di database');
                  document.location.href = 'datamhs.php';
              </script>";
+         } else if(tambahmhs($_POST) == -4){
+            echo "<script>
+                 alert('kode jurusan tidak ada di database dan NPM sudah terdaftar');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         } else if(tambahmhs($_POST) == -5){
+            echo "<script>
+                 alert('dosen tidak ada di database dan NPM sudah terdaftar');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         } else if(tambahmhs($_POST) == -6){
+            echo "<script>
+                 alert('kode jurusan dan dosen tidak ada di database dan NPM sudah terdaftar');
+                 document.location.href = 'datamhs.php';
+             </script>";
+         }
+         else if(tambahmhs($_POST) == -7){
+            echo "<script>
+                 alert('data gagal ditambahkan karena NPM sudah terdaftar');
+                 document.location.href = 'datamhs.php';
+             </script>";
          }
         else{
             echo "<script>
